@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ baseUrl("/libs/material-design-iconic-font/css/material-design-iconic-font.min.css") }}">
 
     <!-- Scripts -->
-    <script src="{{ baseUrl("/libs/jquery/jquery.min.js?version=2.1.4") }}"></script>
+    <script src="{{ baseUrl('/libs/jquery/jquery.min.js?version=2.1.4') }}"></script>
     @include('partials/custom-styles')
 
     <!-- Custom user content -->

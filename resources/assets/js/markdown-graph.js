@@ -1,8 +1,5 @@
-const LazyLoader = require('./LazyLoader');
 const _ = require('lodash');
-const mermaidAPIx = require('mermaid');
-
-var lazyLoad = new LazyLoader(window.document);
+const mermaid = require('mermaid');
 
 const support_graphs = [
     'graph TD',
@@ -16,32 +13,33 @@ class MarkdownGraph {
     }
 
     init() {
-        debugger;
         if (this.apply()) {
             this.loadGraph();
         }
     }
 
     apply() {
-        return $('.CodeMirror-sizer').length > 0;
+        return $('.CodeMirror-sizer, .CodeMirrorContainer').length > 0;
     }
 
     renderToElement(id, markdownContent, $toEle) {
-        mermaidAPIx.render(id, markdownContent, function (svgCode) {
+        mermaid.render(id, markdownContent, function (svgCode) {
+            $toEle.find('svg').remove();
             $toEle.append(svgCode);
         });
     }
 
     getMarkupContent(ele) {
         let $el = $(ele).clone();
-        $el.find('.CodeMirror-linenumber').remove();
+        $el.find('.CodeMirror-linenumber', 'svg').remove();
         let element = $el[0];
         element.innerHTML = element.innerHTML.replace(/<br\s*[\/]?>/gi, ';');
-        return element.textContent.trim().replace(/    /g, ';');
+        return element.textContent.trim()
+            .replace('xxxxxxxxxx','').trim()
+            .replace(/    /g, ';');
     }
 
     loadGraph() {
-
         let $graphs = $('.CodeMirror-sizer');
         var me = this;
         $graphs.each(function (index, ele) {
@@ -51,7 +49,7 @@ class MarkdownGraph {
             });
 
             if (is_graph_render_support) {
-                me.renderToElement('graph-' + index, content, $(ele));
+                me.renderToElement('graph-' + index +  '-' + Math.floor(Math.random() * 1000), content, $(ele));
             }
         });
 

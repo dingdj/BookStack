@@ -1,6 +1,6 @@
 "use strict";
 const Code = require('../code');
-const MarkdownGraph = require('../markdown-graph');
+const MarkdownGraph = require('./markdown-graph');
 var markdown = new MarkdownGraph();
 
 /**
@@ -136,7 +136,7 @@ function codePlugin() {
             if (textArea) textArea.textContent = code;
             selectedNode.setAttribute('data-lang', lang);
         });
-        markdown.init();
+        markdown.pageCodeDialog();
     }
 
     function codeMirrorContainerToPre($codeMirrorContainer) {

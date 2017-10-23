@@ -1,5 +1,6 @@
 const Clipboard = require("clipboard");
 const Code = require('../code');
+const MarkdownGraph = require('./markdown-graph');
 
 let setupPageShow = window.setupPageShow = function (pageId) {
 
@@ -150,6 +151,9 @@ let setupPageShow = window.setupPageShow = function (pageId) {
             unstickTree();
         }
     });
+
+    let markdown = new MarkdownGraph();
+    markdown.pageShow();
 };
 
 module.exports = setupPageShow;

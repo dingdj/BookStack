@@ -128,6 +128,3 @@ if(navigator.userAgent.indexOf('MSIE')!==-1
 
 // Page specific items
 require("./pages/page-show");
-
-const MarkdownGraph = require('./markdown-graph');
-new MarkdownGraph();

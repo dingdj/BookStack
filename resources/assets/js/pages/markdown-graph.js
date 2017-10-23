@@ -22,9 +22,8 @@ class MarkdownGraph {
     }
 
     getMarkupContent(ele) {
-        let $el = $(ele).clone();
-        $el.find('.CodeMirror-linenumber').remove();
-        return $el.text().trim()
+        return $(ele).find('.CodeMirror-code .CodeMirror-line')
+            .text().trim()
             .replace('xxxxxxxxxx','').trim()
             .replace(/\s\s+/g, ';');
     }
@@ -42,14 +41,12 @@ class MarkdownGraph {
         });
     }
 
-    pageForm() {
-        //implement if want to display on editor
-    }
-
     pageCodeDialog(codeEditor) {
-        let $graphsCode = $(codeEditor.$el).find('.CodeMirror-sizer');
-        $graphsCode.find('svg').remove();
-        this.renderOnElement($graphsCode[0]);
+        $(codeEditor.$el.querySelector('.CodeMirror')).on('keyup', _.debounce((e) => {
+            let $graphsCode = $(e.currentTarget).find('.CodeMirror-sizer');
+            $graphsCode.find('svg').remove();
+            this.renderOnElement($graphsCode[0]);
+        }, 120)).keyup();
     }
 
 }

@@ -136,7 +136,7 @@ function codePlugin() {
             if (textArea) textArea.textContent = code;
             selectedNode.setAttribute('data-lang', lang);
         });
-        markdown.pageCodeDialog();
+        markdown.pageCodeDialog(window.vues['code-editor']);
     }
 
     function codeMirrorContainerToPre($codeMirrorContainer) {

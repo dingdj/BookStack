@@ -46,10 +46,10 @@ class MarkdownGraph {
         //implement if want to display on editor
     }
 
-    pageCodeDialog() {
-        let $graphsCode = $('.CodeMirror-sizer');
+    pageCodeDialog(codeEditor) {
+        let $graphsCode = $(codeEditor.$el).find('.CodeMirror-sizer');
         $graphsCode.find('svg').remove();
-        this.renderOnElement($graphsCode.get());
+        this.renderOnElement($graphsCode[0]);
     }
 
 }

@@ -16,18 +16,17 @@ class MarkdownGraph {
         }
         let id = 'graph-' + Math.floor(Math.random() * 1000);
         let $toEle = $(element);
-        if( $toEle.find('.chart').length == 0){
-        	$toEle.append("<div class='chart' />")
+        if ($toEle.find('.graph-placeholder').length == 0) {
+            $toEle.append("<div class='graph-placeholder' />");
         }
         mermaid.render(id, content, (svgCode) => {
             $toEle.append(svgCode);
-        }, $('.chart', $toEle)[0]);
+        }, $('.graph-placeholder', $toEle)[0]);
     }
 
     getMarkupContent(ele) {
         return $(ele).find('.CodeMirror-code .CodeMirror-line')
             .text().trim()
-            .replace('xxxxxxxxxx','').trim()
             .replace(/\s\s+/g, ';');
     }
 
@@ -55,3 +54,4 @@ class MarkdownGraph {
 }
 
 module.exports = MarkdownGraph;
+

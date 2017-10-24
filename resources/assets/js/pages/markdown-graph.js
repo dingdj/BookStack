@@ -16,9 +16,12 @@ class MarkdownGraph {
         }
         let id = 'graph-' + Math.floor(Math.random() * 1000);
         let $toEle = $(element);
-        mermaid.render(id, content, function (svgCode) {
+        if( $toEle.find('.chart').length == 0){
+        	$toEle.append("<div class='chart' />")
+        }
+        mermaid.render(id, content, (svgCode) => {
             $toEle.append(svgCode);
-        });
+        }, $('.chart', $toEle)[0]);
     }
 
     getMarkupContent(ele) {
@@ -42,11 +45,11 @@ class MarkdownGraph {
     }
 
     pageCodeDialog(codeEditor) {
-        $(codeEditor.$el.querySelector('.CodeMirror')).on('keyup', _.debounce((e) => {
+        $(codeEditor.$el.querySelector('.CodeMirror')).off('keyup').on('keyup', _.debounce((e) => {
             let $graphsCode = $(e.currentTarget).find('.CodeMirror-sizer');
             $graphsCode.find('svg').remove();
             this.renderOnElement($graphsCode[0]);
-        }, 120)).keyup();
+        }, 250)).keyup();
     }
 
 }

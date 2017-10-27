@@ -14,6 +14,7 @@ class BookContentSeeder extends Seeder
         $bookstack = factory(\BookStack\Book::class)->create([
             'name' => $bookJson->title,
             'description' => $bookJson->title,
+            'slug' => $bookJson->slug,
             'created_by' => $user->id,
             'updated_by' => $user->id]);
 
@@ -24,6 +25,7 @@ class BookContentSeeder extends Seeder
                     'updated_by' => $user->id,
                     'book_id' => $bookstack->id,
                     'name' => $contentsJson->title,
+                    'slug' => $contentsJson->slug,
                     'html' => $contentsJson->htmlContent,
                     'text' => strip_tags($contentsJson->htmlContent),
                 ]);
@@ -34,6 +36,7 @@ class BookContentSeeder extends Seeder
                     'updated_by' => $user->id,
                     'book_id' => $bookstack->id,
                     'name' => $contentsJson->title,
+                    'slug' => $contentsJson->slug,
                     'description' => $contentsJson->textContent,
                 ]);
                 $bookstack->chapters()->save($chapter);
@@ -44,6 +47,7 @@ class BookContentSeeder extends Seeder
                         'updated_by' => $user->id,
                         'book_id' => $bookstack->id,
                         'name' => $pageJson->title,
+                        'slug' => $pageJson->slug,
                         'html' => $pageJson->htmlContent,
                         'text' => strip_tags($pageJson->htmlContent),
                     ]);

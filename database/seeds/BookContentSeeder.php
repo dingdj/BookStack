@@ -6,7 +6,7 @@ class BookContentSeeder extends Seeder
 {
     public function run()
     {
-        $user = \BookStack\User::where('email', '=', 'admin@admin.com')->first();
+        $user = \BookStack\User::where('id', '=', 1)->first();
         
         $booksJsonFile = File::get("/Data/books/books_json/RESTful Web Services.json");
         $bookJson = json_decode($booksJsonFile);

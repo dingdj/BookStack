@@ -1,10 +1,13 @@
+"use strict";
+
 const _ = require('lodash');
 const mermaid = require('mermaid');
 
 const support_graphs = [
     'graph TD',
     'graph LR',
-    'sequenceDiagram'
+    'sequenceDiagram',
+    'gantt'
 ];
 
 class MarkdownGraph {
@@ -25,22 +28,20 @@ class MarkdownGraph {
     }
 
     getMarkupContent(ele) {
-        return $(ele).find('.CodeMirror-code .CodeMirror-line')
-            .text().trim()
-            .replace(/\s\s+/g, ';');
+        let $codeLine = $(ele).find('.CodeMirror-code .CodeMirror-linenumber');
+        $codeLine.hide();
+        let code = ele.innerText.trim();
+        $codeLine.show();
+        return code;
     }
 
     _isSupport(markdownContent) {
-        return _.some(support_graphs, function (g) {
-            return markdownContent.startsWith(g);
-        });
+        return support_graphs.some((g) => markdownContent.startsWith(g));
     }
 
     pageShow() {
         let $graphsCode = $('.CodeMirror-sizer');
-        $graphsCode.each((index, ele) => {
-            this.renderOnElement(ele);
-        });
+        $graphsCode.each((index, ele) => this.renderOnElement(ele));
     }
 
     pageCodeDialog(codeEditor) {

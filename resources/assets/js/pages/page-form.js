@@ -249,7 +249,7 @@ module.exports = {
     extended_valid_elements: 'pre[*]',
     automatic_uploads: false,
     valid_children: "-div[p|h1|h2|h3|h4|h5|h6|blockquote],+div[pre]",
-    plugins: "image table textcolor paste link autolink fullscreen imagetools code customhr autosave lists codeeditor",
+    plugins: "image table textcolor paste link autolink fullscreen imagetools code customhr autosave lists codeeditor textpattern smileys",
     imagetools_toolbar: 'imageoptions',
     toolbar: "undo redo | styleselect | bold italic underline strikethrough superscript subscript | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table image-insert link hr | removeformat code fullscreen",
     content_style: "body {padding-left: 15px !important; padding-right: 15px !important; margin:0!important; margin-left:auto!important;margin-right:auto!important;}",
@@ -280,6 +280,26 @@ module.exports = {
         calloutwarning: {block: 'p', exact: true, attributes: {class: 'callout warning'}},
         calloutdanger: {block: 'p', exact: true, attributes: {class: 'callout danger'}}
     },
+    auto_convert_smileys: true,
+    extended_smileys:[
+        [
+            { shortcut: '(/)', url: '/ext/icons/sign-check-ico-16.png'},
+            { shortcut: '(x)', url: '/ext/icons/sign-error-icon-16.png'},
+            { shortcut: '(!)', url: '/ext/icons/sign-warning-icon-16.png'}
+        ]
+    ],
+    textpattern_patterns: [
+         {start: '*', end: '*', format: 'italic'},
+         {start: '**', end: '**', format: 'bold'},
+         {start: '#', format: 'h1'},
+         {start: '##', format: 'h2'},
+         {start: '###', format: 'h3'},
+         {start: '####', format: 'h4'},
+         {start: '1. ', cmd: 'InsertOrderedList'},
+         {start: '* ', cmd: 'InsertUnorderedList'},
+         {start: '- ', cmd: 'InsertUnorderedList'},
+         {start: '`', end: '`', format: 'code'},
+     ],
     file_browser_callback: function (field_name, url, type, win) {
 
         if (type === 'file') {

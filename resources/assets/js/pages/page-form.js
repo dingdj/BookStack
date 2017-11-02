@@ -283,9 +283,9 @@ module.exports = {
     auto_convert_smileys: true,
     extended_smileys:[
         [
-            { shortcut: '(/)', url: '/ext/icons/sign-check-ico-16.png'},
-            { shortcut: '(x)', url: '/ext/icons/sign-error-icon-16.png'},
-            { shortcut: '(!)', url: '/ext/icons/sign-warning-icon-16.png'}
+            { shortcut: '(/)', url: '/ext/icons/sign-check-icon.png', title: '[(/)]'},
+            { shortcut: '(x)', url: '/ext/icons/sign-error-icon.png', title: '[(x)]'},
+            { shortcut: '(!)', url: '/ext/icons/sign-warning-icon.png', title: '[(!)]'}
         ]
     ],
     textpattern_patterns: [

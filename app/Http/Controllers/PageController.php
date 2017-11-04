@@ -482,7 +482,21 @@ class PageController extends Controller
             'Content-Disposition' => 'attachment; filename="' . $pageSlug . '.txt'
         ]);
     }
-
+    
+    /**
+     * Export a page to a presentation HTML.
+     * @param string $bookSlug
+     * @param string $pageSlug
+     * @return \Illuminate\Http\Response
+     */
+    public function exportPresentation($bookSlug, $pageSlug)
+    {
+        $page = $this->entityRepo->getBySlug('page', $pageSlug, $bookSlug);
+        $page->html = $this->entityRepo->renderPage($page);
+        $containedHtml = $this->exportService->pageToPresentationHtml($page);
+        return response()->make($containedHtml, 200);
+    }
+    
     /**
      * Show a listing of recently created pages
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

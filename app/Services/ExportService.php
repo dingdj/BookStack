@@ -46,7 +46,7 @@ class ExportService
         $pageHtml = view('pages/presentation', [
             'page' => $page
         ])->render();
-        return $this->containHtml($pageHtml);
+        return $pageHtml;
     }
 
     /**

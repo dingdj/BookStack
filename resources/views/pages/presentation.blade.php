@@ -5,17 +5,46 @@
         <title>{{ $page->name }}</title>
     
         <link rel="stylesheet" href="{{ baseUrl('/libs/reveal-js/css/reveal.css') }}"/>
-        <link rel="stylesheet" href="{{ baseUrl('/libs/reveal-js/css/theme/beige.css') }}"/>
+        <link rel="stylesheet" href="{{ baseUrl('/libs/reveal-js/css/theme/serif.css') }}"/>
         <link rel="stylesheet" href="{{ baseUrl('/libs/reveal-js/lib/css/zenburn.css') }}"/>
-    
+
         <script src="{{ baseUrl('/libs/jquery/jquery.min.js?version=2.1.4') }}"></script>
         <script src="{{ baseUrl('/libs/reveal-js/js/reveal.min.js?version=3.5.0') }}"></script>
         <script src="{{ baseUrl('/libs/reveal-js/lib/js/head.min.js?version=1.0.3') }}"></script>
+        
+        <style>
+            header {
+                background: url("http://www.ciges.net/revealjs_demo/images/background_bar_h100.png") top left repeat-x;
+                position: absolute;
+                top: -20px;
+                width: 100%;
+                height: 80px;
+            }
+
+            header .logo {
+                background-color: #fff;
+                border: solid #fff 10px;
+                border-radius: 15px;
+                position: absolute;
+                top: 0px;
+                right: 1em;
+            }
+
+            header .logo-text {
+                color: white;
+                margin: 37px;
+            }
+        </style>
     
         @yield('head')
     </head>
     
     <body>
+        <header class="header">
+            <h1 class="logo-text">Twiki - knowledge books</h1>
+            <img class="logo" src="http://www.ciges.net/revealjs_demo/images/logo_tegnix_w100.png"/>
+        </header>
+        
         <div class='reveal'>
             <div class='slides'>
                 {!! $page->html !!}

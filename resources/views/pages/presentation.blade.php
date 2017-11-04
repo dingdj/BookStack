@@ -34,6 +34,10 @@
                 color: white;
                 margin: 37px;
             }
+
+            .reveal .slides {
+                margin-top: 60px;
+            }
         </style>
     
         @yield('head')

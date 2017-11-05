@@ -14,29 +14,24 @@
         
         <style>
             header {
-                background: url("http://www.ciges.net/revealjs_demo/images/background_bar_h100.png") top left repeat-x;
+                background-color: rgba(209, 122, 2, 0.8);
                 position: absolute;
-                top: -20px;
                 width: 100%;
-                height: 80px;
+                height: 56px;
+                margin-top: 1px;
             }
 
             header .logo {
-                background-color: #fff;
-                border: solid #fff 10px;
-                border-radius: 15px;
-                position: absolute;
-                top: 0px;
-                right: 1em;
+                height: 50px;
+                float: right;
+                padding: 3px 20px;
             }
 
             header .logo-text {
                 color: white;
-                margin: 37px;
-            }
-
-            .reveal .slides {
-                margin-top: 60px;
+                float: left;
+                font-size: 38px;
+                padding: 7px 20px;
             }
         </style>
     
@@ -45,8 +40,8 @@
     
     <body>
         <header class="header">
-            <h1 class="logo-text">Twiki - knowledge books</h1>
-            <img class="logo" src="http://www.ciges.net/revealjs_demo/images/logo_tegnix_w100.png"/>
+            <div class="logo-text">Twiki - Present books</div>
+            <img class="logo" src="https://camo.githubusercontent.com/566e9f6920a7cc5d43536d90b76069ec80241909/687474703a2f2f692e696d6775722e636f6d2f414b73436179472e706e67"/>
         </header>
         
         <div class='reveal'>

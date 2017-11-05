@@ -15,7 +15,6 @@
         <style>
             header {
                 background-color: rgba(209, 122, 2, 0.8);
-                position: absolute;
                 width: 100%;
                 height: 56px;
                 margin-top: 1px;

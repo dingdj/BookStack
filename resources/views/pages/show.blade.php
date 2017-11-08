@@ -12,6 +12,7 @@
                     <li><a href="{{ $page->getUrl('/export/html') }}" target="_blank">{{ trans('entities.export_html') }} <span class="text-muted float right">.html</span></a></li>
                     <li><a href="{{ $page->getUrl('/export/pdf') }}" target="_blank">{{ trans('entities.export_pdf') }} <span class="text-muted float right">.pdf</span></a></li>
                     <li><a href="{{ $page->getUrl('/export/plaintext') }}" target="_blank">{{ trans('entities.export_text') }} <span class="text-muted float right">.txt</span></a></li>
+                    <li><a href="{{ $page->getUrl('/export/presentation') }}" target="_blank">Present<span class="text-muted float right">.ppt</span></a></li>
                 </ul>
             </span>
             @if(userCan('page-update', $page))

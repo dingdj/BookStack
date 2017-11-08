@@ -33,6 +33,21 @@ class ExportService
         ])->render();
         return $this->containHtml($pageHtml);
     }
+    
+    /**
+     * Convert a page to a self-contained HTML file.
+     * Includes required CSS & image content. Images are base64 encoded into the HTML.
+     * @param Page $page
+     * @return mixed|string
+     */
+    public function pageToPresentationHtml(Page $page)
+    {
+        $this->entityRepo->renderPage($page);
+        $pageHtml = view('pages/presentation', [
+            'page' => $page
+        ])->render();
+        return $pageHtml;
+    }
 
     /**
      * Convert a chapter to a self-contained HTML file.

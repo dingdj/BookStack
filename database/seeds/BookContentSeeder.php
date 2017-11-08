@@ -8,7 +8,7 @@ class BookContentSeeder extends Seeder
     {
         $user = \BookStack\User::where('id', '=', 1)->first();
         
-        $booksJsonFile = File::get("/Data/books/books_json/RESTful Web Services.json");
+        $booksJsonFile = File::get("D:/books/books_json/RESTful Web Services.json");
         $bookJson = json_decode($booksJsonFile);
 
         $bookstack = factory(\BookStack\Book::class)->create([
@@ -24,6 +24,7 @@ class BookContentSeeder extends Seeder
                     'created_by' => $user->id,
                     'updated_by' => $user->id,
                     'book_id' => $bookstack->id,
+                    'priority' => $contentsJson->priority,
                     'name' => $contentsJson->title,
                     'slug' => $contentsJson->slug,
                     'html' => $contentsJson->htmlContent,
@@ -35,6 +36,7 @@ class BookContentSeeder extends Seeder
                     'created_by' => $user->id,
                     'updated_by' => $user->id,
                     'book_id' => $bookstack->id,
+                    'priority' => $contentsJson->priority,
                     'name' => $contentsJson->title,
                     'slug' => $contentsJson->slug,
                     'description' => $contentsJson->textContent,
@@ -46,6 +48,7 @@ class BookContentSeeder extends Seeder
                         'created_by' => $user->id,
                         'updated_by' => $user->id,
                         'book_id' => $bookstack->id,
+                        'priority' => $pageJson->priority,
                         'name' => $pageJson->title,
                         'slug' => $pageJson->slug,
                         'html' => $pageJson->htmlContent,

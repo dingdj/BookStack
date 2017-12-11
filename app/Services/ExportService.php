@@ -142,7 +142,7 @@ class ExportService
             $pdf = \SnappyPDF::loadHTML($containedHtml);
             $pdf->setOption('print-media-type', true);
         } else {
-            $pdf = \PDF::loadHTML($containedHtml);
+            $pdf = \DomPDF::loadHTML($containedHtml);
         }
         return $pdf->output();
     }

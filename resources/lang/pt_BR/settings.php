@@ -34,6 +34,8 @@ return [
     'app_homepage' => 'Página incial',
     'app_homepage_desc' => 'Selecione a página para ser usada como página inicial em vez da padrão. Permissões da página serão ignoradas.',
     'app_homepage_default' => 'Escolhida página inicial padrão',
+    'app_disable_comments' => 'Desativar comentários',
+    'app_disable_comments_desc' => 'Desativar comentários em todas as páginas no aplicativo. Os comentários existentes não são exibidos.',
 
     /**
      * Registration settings
@@ -94,6 +96,7 @@ return [
     'users_external_auth_id' => 'ID de Autenticação Externa',
     'users_password_warning' => 'Preencha os dados abaixo caso queira modificar a sua senha:',
     'users_system_public' => 'Esse usuário representa quaisquer convidados que visitam o aplicativo. Ele não pode ser usado para login.',
+    'users_books_view_type' => 'Layout preferido para mostrar livros',
     'users_delete' => 'Excluir Usuário',
     'users_delete_named' => 'Excluir :userName',
     'users_delete_warning' => 'A ação vai excluir completamente o usuário de nome \':userName\' do sistema.',
